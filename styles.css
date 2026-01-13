@@ -1,0 +1,454 @@
+/* Custom Styles for Portfolio - Compatible with Bootstrap 4 */
+/* Updated to closer match DevFolio (HTMLCodex Item 1011): Montserrat font, navy/blue color scheme, enhanced animations, and clean corporate vibe. 
+   Fixed: Backdrop-filter with fallback & prefix for broad compatibility. Hero fully styled to match demo. */
+
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa; /* Light gray for subtle contrast */
+}
+
+* {
+    box-sizing: border-box; /* Keep this for consistency */
+}
+
+/* Navbar Overrides */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+    padding: 1rem 0; /* DevFolio spacing */
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #1e3c72 !important; /* DevFolio navy */
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #333 !important;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Subtle like demo */
+}
+
+.nav-link:hover {
+    color: #00d4ff !important; /* Bright blue accent */
+}
+
+/* Navbar Scroll Effect - Fixed with Fallback & Prefix */
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Fallback: Semi-transparent white */
+    -webkit-backdrop-filter: blur(10px); /* Prefix for Safari/WebKit */
+    backdrop-filter: blur(10px); /* Standard property */
+}
+
+/* Optional: Stronger fallback for no-support browsers */
+@supports not (backdrop-filter: blur(10px)) {
+    .navbar.scrolled {
+        background-color: rgba(255, 255, 255, 0.98) !important; /* More opaque if blur fails */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle divider */
+    }
+}
+
+/* Hero Section - Red Background (Custom Update) */
+.hero {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important; /* Red gradient for depth */
+    min-height: 100vh !important;
+    color: #ffffff !important; /* Keep white text for contrast */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative;
+    overflow: visible !important;
+    padding: 0 !important;
+}
+
+.hero::before {
+    content: none; /* No overlay for clean red */
+}
+
+.hero * {
+    color: #ffffff !important; /* Ensure text/buttons stay white on red */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important; /* Boost readability on red */
+}
+
+.highlight {
+    color: #00d4ff !important; /* Blue highlight to match template */
+}
+
+.hero .lead {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.hero .typed {
+    border-right: 2px solid #00d4ff; /* Typing cursor */
+    font-weight: 400;
+}
+
+.typed-cursor {
+    color: #00d4ff;
+    font-weight: bold;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Profile Image in Hero */
+.profile-img img {
+    width: 200px !important;
+    height: 200px !important;
+    border: 4px solid rgba(255,255,255,0.2) !important;
+    opacity: 1 !important; /* Force show */
+    display: block !important;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.profile-img img:hover {
+    transform: scale(1.05);
+}
+
+
+/* Section Titles */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e3c72; /* Navy */
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #00d4ff; /* Blue underline */
+    margin: 1rem auto;
+}
+
+.section-title i {
+    color: #00d4ff; /* Icon accent */
+}
+
+/* About Section - DevFolio Match (Red Theme) */
+#about {
+    background-color: #f8f9fa;
+    padding: 100px 0;
+}
+
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-img img:hover {
+    transform: scale(1.05);
+}
+
+/* Skills Progress Bars */
+.progress {
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #00d4ff, #0099cc); /* Blue gradient like DevFolio */
+    transition: width 2s ease-in-out;
+    border-radius: 5px;
+}
+
+.progress-bar.animate {
+    transition: width 2s ease-in-out;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: left;
+    color: #1e3c72;
+}
+
+/* Experience Timeline  */
+#experience {
+    background-color: #f8f9fa;
+    padding: 100px 0;
+    position: relative;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #dc3545; /* Red line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px; /* Center line */
+    border-radius: 3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px; /* For left items */
+    background-color: white;
+    border: 4px solid #dc3545; /* Red circle border */
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%; /* Right side */
+}
+
+.right::after {
+    left: -16px; /* Adjust for right items */
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    box-shadow: 0 10px 25px rgba(220, 53, 69, 0.15); /* Red tint on hover */
+    transform: translateX(5px); /* Subtle slide */
+}
+
+.timeline-content h4 {
+    margin: 0 0 10px;
+    color: #1e3c72; /* Navy title */
+    font-weight: 600;
+}
+
+.timeline-content h5 {
+    margin: 0 0 10px;
+    color: #6c757d; /* Muted company */
+    font-size: 1rem;
+}
+
+.timeline-content .date {
+    color: #dc3545; /* Red dates */
+    font-weight: 600;
+    margin: 0 0 15px;
+    font-size: 0.9rem;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Hide line on mobile */
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 31px; /* Left-aligned line */
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::after {
+        left: 15px; /* Circle on left */
+    }
+    
+    .right {
+        left: 0%; /* No right side on mobile */
+    }
+    
+    .right::after {
+        left: 15px;
+    }
+    
+    #experience {
+        padding: 60px 0;
+    }
+}
+
+
+/* Portfolio */
+#portfolio .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+#portfolio .card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.project {
+    /* Fallback for any non-card projects */
+    background-color: white;
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+/* Contact Form */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    transition: border-color 0.3s ease;
+    font-weight: 300;
+}
+
+.form-control:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 212, 255, 0.25);
+}
+
+#contact p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 50px; /* Rounded like DevFolio */
+    font-weight: 500;
+    padding: 0.75rem 2rem; /* Wider padding */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Like DevFolio */
+    font-size: 0.875rem;
+}
+
+.btn-primary {
+    background-color: #00d4ff;
+    border-color: #00d4ff;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3); /* Glow like demo */
+}
+
+.btn-primary:hover {
+    background-color: #0099cc;
+    border-color: #0099cc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+}
+
+.btn-danger {
+    background-color: #1e3c72; /* Navy fallback */
+    border-color: #1e3c72;
+}
+
+.btn-danger:hover {
+    background-color: #162b4e;
+    border-color: #162b4e;
+    transform: translateY(-2px);
+}
+
+.btn-outline-light {
+    border-color: white;
+    color: white;
+    padding: 0.75rem 2rem;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #1e3c72;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: #1e3c72 !important; /* Navy */
+    color: white;
+    padding: 2rem 0;
+    margin-top: auto;
+    font-weight: 300;
+}
+
+/* Animations & Scroll Effects */
+.fade-in {/* Animations & Scroll Effects - Fixed for Hero Visibility */
+.fade-in {
+    opacity: 1; /* Start visible! */
+    transform: translateY(0); /* No initial offset */
+    transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero-Specific Text Fix */
+.hero .display-4 {
+    font-weight: 700;
+    animation: fadeInUp 1s ease-out;
+    font-size: 3.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important; /* Ensure readability */
+    color: #ffffff !important; /* Force white */
+    letter-spacing: -1px;
+}
+
+.hero .highlight {
+    color: #00d4ff !important; /* Blue highlight */
+}
+
+/* Lead Text (Subtitle) */
+.hero .lead {
+    font-size: 1.25rem;
+    opacity: 1 !important; /* Force visible */
+    font-weight: 300;
+    color: #ffffff !important;
+}
+
+}
